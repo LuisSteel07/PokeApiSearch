@@ -2,39 +2,15 @@ import { useState } from 'react';
 import AppBar from '../Components/AppBar';
 import Pokemon from '../Components/Pokemon';
 import { type PokemonProps } from '../Models/PokemonProps';
+import PokemonRequest from '../Requests/PokemonRequest';
 import '../css/main.css'
 
 function PrincipalView(){
     const [name, setName] = useState("")
-    const [results, setResults] = useState<PokemonProps>({})
-    const [showPokemon, setShowPokemon] = useState(false)
+    const [results, setResults] = useState<PokemonProps>()
 
     async function search_pokemon(){
-        let res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}/`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        }).then(response => {
-            if(response.ok){
-                return response.json()
-            }
-        })
-        let types_pokemon: Array<string> = []
-        res.types.map((e) => {
-            console.log(e.type.name)
-            types_pokemon.push(e.type.name)
-        })
-        setResults({ 
-            name: res.name,
-            id: res.id,
-            weight: res.weight/10,
-            height: res.height*10,
-            photo: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${res.id}.png`,
-            cries: `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${res.id}.ogg`,
-            types: types_pokemon
-        })
-        setShowPokemon(true)
+        setResults(await PokemonRequest(name))
     }
 
     return (
@@ -53,10 +29,10 @@ function PrincipalView(){
                 </button>
             </section>
             {   
-                showPokemon
+                results != undefined
                     ?
                         <section className='flex justify-center'>
-                            <Pokemon name={results.name} weight={results.weight} height={results.height} id={results.id} photo={results.photo} cries={results.cries} types={results.types}/>
+                            <Pokemon pokemon={results}/>
                         </section>
                     :
                     <></>
