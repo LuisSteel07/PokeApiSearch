@@ -8,7 +8,6 @@ const CriesPlayer: React.FC<CriesPlayerProps> = ({sound_url}) => {
     const audioRef = useRef<HTMLAudioElement | null>(null);
 
     const reproducirAudio = () => {
-        console.log('w')
         audioRef.current?.play();
     };
 

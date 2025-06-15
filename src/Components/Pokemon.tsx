@@ -18,11 +18,13 @@ interface PokemonComponentProps {
 const Pokemon: React.FC<PokemonComponentProps> = (pokemon: PokemonComponentProps) => {
     const {name, id, weight, height, types, photo, cries} = pokemon.pokemon
 
+    console.log(name)
+
     return (
         <section className="pt-8 pb-4 flex flex-col bg-slate-700 rounded-2xl justify-center w-[450px]">
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center p-4">
                 <div className="flex flex-col justify-center">
-                    <h1 className="text-white font-bold text-2xl">Name: {name}</h1>
+                    <h1 className="text-white font-bold text-xl">Name: {name}</h1>
                     <p className="text-white font-semibold">ID: {id}</p>
                     <p className="text-white font-semibold">Weight: {weight}kg</p>
                     <p className="text-white font-semibold">Height: {height}m</p>
@@ -32,7 +34,9 @@ const Pokemon: React.FC<PokemonComponentProps> = (pokemon: PokemonComponentProps
                     }
                     <CriesPlayer sound_url={cries} />
                 </div>
-                <img src={photo} alt="Pokemon photo" className="w-[200px]"/>
+                <div className='w-[200px]'>
+                    <img src={photo} alt="Pokemon photo" className="w-[180px]"/>
+                </div>
             </div>
         </section>
     )

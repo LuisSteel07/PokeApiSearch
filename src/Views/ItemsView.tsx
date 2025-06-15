@@ -1,23 +1,23 @@
-import { useState } from 'react';
-import { type PokemonProps } from '../Models/PokemonProps';
-
-import Pokemon from '../Components/Pokemon';
-import PokemonRequest from '../Requests/PokemonRequest';
 import SearchInput from '../Components/SearchInput';
 import { ToastContainer, toast } from 'react-toastify';
-import '../css/main.css'
 
-function PrincipalView(){
-    const [results, setResults] = useState<PokemonProps>()
+import '../css/main.css'
+import type { ItemsProps } from '../Models/ItemsProps';
+import { useState } from 'react';
+import ItemRequest from '../Requests/ItemRequest';
+import Item from '../Components/Item';
+
+const ItemsView:React.FC = () => {
+    const [results, setResults] = useState<ItemsProps>()
 
     async function handleSearch(query: string){
         try{
-            setResults(await PokemonRequest(query))
+            setResults(await ItemRequest(query))
         }
         catch(Error){
-            toast("Pokemon not found!");
+            toast("Item not found!");
         }
-    }
+    } 
 
     return (
         <>
@@ -28,7 +28,7 @@ function PrincipalView(){
                 results != undefined
                     ?
                         <section className='flex justify-center'>
-                            <Pokemon pokemon={results}/>
+                            <Item item={results}/>
                         </section>
                     :
                     <></>
@@ -38,4 +38,4 @@ function PrincipalView(){
     )
 }
 
-export default PrincipalView
+export default ItemsView

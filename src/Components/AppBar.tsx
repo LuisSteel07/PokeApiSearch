@@ -9,10 +9,7 @@ function AppBar(){
                 <Link to={"/"}>
                     <p className='text-white font-semibold underline underline-offset-2'>Pokemon</p>
                 </Link>
-                <Link to={"/"}>
-                    <p className='text-white font-semibold underline underline-offset-2'>Berries</p>
-                </Link>
-                <Link to={"/"}>
+                <Link to={"/items"}>
                     <p className='text-white font-semibold underline underline-offset-2'>Items</p>
                 </Link>
                 <Link to={"/"}>
