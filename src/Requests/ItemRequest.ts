@@ -2,7 +2,6 @@ import type { ItemsProps } from "../Models/ItemsProps"
 import type { attributesType } from "../Models/attributesType"
 
 async function ItemRequest(name :string) {
-    console.log(name)
     let res = await fetch(`https://pokeapi.co/api/v2/item/${name}/`, {
         method: 'GET',
         headers: {
@@ -14,8 +13,6 @@ async function ItemRequest(name :string) {
             return response.json()
         }
     })
-
-    
 
     let attributes: Array<string> = []
 
@@ -30,8 +27,6 @@ async function ItemRequest(name :string) {
         attributes: attributes,
         category: res.category.name
     }
-
-    console.log(item)
 
     return item
 
