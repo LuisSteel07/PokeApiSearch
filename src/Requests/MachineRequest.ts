@@ -12,8 +12,6 @@ async function MachineRequest(name: string){
         }
     })
 
-    console.log(res)
-
     const machine: MachineProps = {
         id: res.id,
         name: res.item.name,
