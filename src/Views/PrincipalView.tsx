@@ -21,6 +21,9 @@ function PrincipalView(){
 
     return (
         <>
+            <section className='flex justify-center pt-8'>
+                <p>En esta seccion podra buscar todo tipo de pokemon, coloque su nombre o numero.</p>
+            </section>
             <section className='flex justify-evenly p-4'>
                 <SearchInput onSearch={handleSearch} />
             </section>

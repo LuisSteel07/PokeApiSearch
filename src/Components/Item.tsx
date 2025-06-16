@@ -12,7 +12,7 @@ interface ItemsComponentProps {
     item: ItemsProps
 }
 
-const Pokemon: React.FC<ItemsComponentProps> = (item: ItemsComponentProps) => {
+const Item: React.FC<ItemsComponentProps> = (item: ItemsComponentProps) => {
     const { name, photo, effect, category, attributes} = item.item
 
     return (
@@ -20,7 +20,7 @@ const Pokemon: React.FC<ItemsComponentProps> = (item: ItemsComponentProps) => {
             <div className="flex flex-col justify-center items-center p-4">
                 <div className='w-full flex items-center gap-8 justify-evenly'>
                     <h1 className="text-white font-bold text-xl">Name: {name}</h1>
-                    <img src={photo} alt="Pokemon photo" className="w-[80px]"/>
+                    <img src={photo} alt="Item photo" className="w-[80px]"/>
                 </div>
                 <div className="flex flex-col justify-center m-4">
                     <p className="text-white flex gap-2"><p className='font-bold'>Effect:</p> {effect}</p>
@@ -35,4 +35,4 @@ const Pokemon: React.FC<ItemsComponentProps> = (item: ItemsComponentProps) => {
     )
 }
 
-export default Pokemon
+export default Item

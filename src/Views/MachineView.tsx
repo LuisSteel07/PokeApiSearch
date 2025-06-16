@@ -2,27 +2,27 @@ import SearchInput from '../Components/SearchInput';
 import { ToastContainer, toast } from 'react-toastify';
 
 import '../css/main.css'
-import type { ItemsProps } from '../Models/ItemsProps';
 import { useState } from 'react';
-import ItemRequest from '../Requests/ItemRequest';
-import Item from '../Components/Item';
+import type { MachineProps } from '../Models/MachineProps';
+import MachineRequest from '../Requests/MachineRequest';
+import Machine from '../Components/Machine';
 
 const ItemsView:React.FC = () => {
-    const [results, setResults] = useState<ItemsProps>()
+    const [results, setResults] = useState<MachineProps>()
 
     async function handleSearch(query: string){
         try{
-            setResults(await ItemRequest(query))
+            setResults(await MachineRequest(query))
         }
         catch(Error){
-            toast("Item not found!");
+            toast("Machine not found!");
         }
     } 
 
     return (
         <>
         <section className='flex justify-center pt-8'>
-                <p>En esta seccion podra buscar todo tipo de items, coloque su nombre o numero.</p>
+                <p>En esta seccion podra buscar todo tipo de discos de movimientos, coloque su numero.</p>
             </section>
             <section className='flex justify-evenly p-4'>
                 <SearchInput onSearch={handleSearch} />
@@ -31,7 +31,7 @@ const ItemsView:React.FC = () => {
                 results != undefined
                     ?
                         <section className='flex justify-center'>
-                            <Item item={results}/>
+                            <Machine machine={results}/>
                         </section>
                     :
                     <></>
