@@ -9,7 +9,6 @@ async function ItemRequest(name :string) {
         },
     }).then(response => {
         if(response.ok){
-            console.log(response)
             return response.json()
         }
     })

@@ -1,4 +1,4 @@
-export interface Moves {
+export interface MovesProps {
     id: number,
     name: string,
     pp: number,

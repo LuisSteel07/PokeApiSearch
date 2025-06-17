@@ -15,7 +15,7 @@ function AppBar(){
                 <Link to={"/machines"}>
                     <p className='text-white font-semibold underline underline-offset-2'>Machines</p>
                 </Link>
-                <Link to={"/"}>
+                <Link to={"/move"}>
                     <p className='text-white font-semibold underline underline-offset-2'>Moves</p>
                 </Link>
             </section>

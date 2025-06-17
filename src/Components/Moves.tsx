@@ -1,6 +1,5 @@
-import { type PokemonProps } from '../Models/PokemonProps';
+import type { MovesProps } from '../Models/MovesProps';
 import colorsPokemon from '../Models/colorsPokemon';
-import CriesPlayer from './CriesPlayer';
 
 function createTicketType(type: string) {
     const color = colorsPokemon[type.toLowerCase()] || "#A8A77A";
@@ -11,12 +10,12 @@ function createTicketType(type: string) {
     );
 }
 
-interface PokemonComponentProps {
-    pokemon: PokemonProps
+interface MovesComponentProps {
+    move: MovesProps
 }
 
-const Pokemon: React.FC<PokemonComponentProps> = (pokemon: PokemonComponentProps) => {
-    const {name, id, weight, height, types, photo, cries} = pokemon.pokemon
+const Moves: React.FC<MovesComponentProps> = (move: MovesComponentProps) => {
+    const {name, id, pp, accuracy, effect_chance, machines, type} = move.move
 
     return (
         <section className="pt-8 pb-4 flex flex-col bg-slate-700 rounded-2xl justify-center w-[450px]">
@@ -24,20 +23,18 @@ const Pokemon: React.FC<PokemonComponentProps> = (pokemon: PokemonComponentProps
                 <div className="flex flex-col justify-center">
                     <h1 className="text-white font-bold text-xl">Name: {name}</h1>
                     <p className="text-white font-semibold">ID: {id}</p>
-                    <p className="text-white font-semibold">Weight: {weight}kg</p>
-                    <p className="text-white font-semibold">Height: {height}m</p>
+                    <p className="text-white font-semibold">PP: {pp}</p>
+                    <p className="text-white font-semibold">Accuracy: {accuracy}</p>
+                    <p className="text-white font-semibold">Effect Chance: {effect_chance}</p>
+                    <p className="text-white font-semibold">Machines: {machines}</p>
                     <p className="text-white font-semibold">Types: </p>
                     {   
-                        types.map(e => createTicketType(e))
+                        createTicketType(type)
                     }
-                    <CriesPlayer sound_url={cries} />
-                </div>
-                <div className='w-[200px]'>
-                    <img src={photo} alt="Pokemon photo" className="w-[180px]"/>
                 </div>
             </div>
         </section>
     )
 }
 
-export default Pokemon
+export default Moves

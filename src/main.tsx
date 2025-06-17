@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import AppBar from './Components/AppBar';
 import ItemsView from './Views/ItemsView';
 import MachineView from './Views/MachineView';
+import MovesView from './Views/MovesView';
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
@@ -24,6 +25,12 @@ createRoot(document.getElementById('root')!).render(
         <>
           <AppBar/>
           <MachineView/>
+        </>
+      }/>
+      <Route path='/move' element={
+        <>
+          <AppBar/>
+          <MovesView/>
         </>
       }/>
     </Routes>
