@@ -4,6 +4,6 @@ export interface MovesProps {
     pp: number,
     accuracy: number,
     effect_chance: number,
-    machines: string,
+    machines: Array<string>,
     type: string
 }

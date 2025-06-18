@@ -19,7 +19,7 @@ async function MovesRequest(name :string) {
         effect_chance: res.effect_chance,
         pp: res.pp,
         type: res.type.name,
-        machines: res.machines,
+        machines: [],
     }
 
     return move
