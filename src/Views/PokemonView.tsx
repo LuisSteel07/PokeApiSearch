@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { type PokemonProps } from '../Models/PokemonProps';
 
 import Pokemon from '../Components/Pokemon';
+import Text from '../Components/Text';
 import PokemonRequest from '../Requests/PokemonRequest';
 import SearchInput from '../Components/SearchInput';
 import { ToastContainer, toast } from 'react-toastify';
@@ -20,9 +21,9 @@ function PokemonView(){
     }
 
     return (
-        <>
+        <section className='flex grow flex-col justify-center pt-8 gap-8 h-full'>
             <section className='flex justify-center pt-8'>
-                <p>En esta seccion podra buscar todo tipo de pokemon, coloque su nombre o numero.</p>
+                <Text text='En esta seccion podra buscar todo tipo de pokemon, coloque su nombre o numero.' />
             </section>
             <section className='flex justify-evenly p-4'>
                 <SearchInput onSearch={handleSearch} />
@@ -37,7 +38,7 @@ function PokemonView(){
                     <></>
             }
             <ToastContainer theme='dark' />
-        </>
+        </section>
     )
 }
 

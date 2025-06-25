@@ -3,7 +3,7 @@ import '../css/main.css'
 
 function PrincipalView(){
     return (
-        <div className='flex flex-col justify-center pt-8 gap-8 h-full'>
+        <div className='flex grow flex-col justify-center pt-8 gap-8 h-full'>
             <h1 className='text-4xl font-bold text-center underline'>Puede buscar informacion acerca de</h1>
             <section className='flex flex-wrap gap-8 justify-center'>
                 <Card 

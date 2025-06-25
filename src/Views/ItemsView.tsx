@@ -6,6 +6,7 @@ import type { ItemsProps } from '../Models/ItemsProps';
 import { useState } from 'react';
 import ItemRequest from '../Requests/ItemRequest';
 import Item from '../Components/Item';
+import Text from '../Components/Text';
 
 const ItemsView:React.FC = () => {
     const [results, setResults] = useState<ItemsProps>()
@@ -20,9 +21,9 @@ const ItemsView:React.FC = () => {
     } 
 
     return (
-        <>
-        <section className='flex justify-center pt-8'>
-                <p>En esta seccion podra buscar todo tipo de items, coloque su nombre o numero.</p>
+        <section className='flex grow flex-col justify-center pt-8 gap-8 h-full'>
+            <section className='flex justify-center pt-8'>
+                <Text text='En esta seccion podra buscar todo tipo de items, coloque su nombre o numero.' />
             </section>
             <section className='flex justify-evenly p-4'>
                 <SearchInput onSearch={handleSearch} />
@@ -37,7 +38,7 @@ const ItemsView:React.FC = () => {
                     <></>
             }
             <ToastContainer theme='dark' />
-        </>
+        </section>
     )
 }
 
